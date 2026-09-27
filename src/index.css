@@ -1,17 +1,94 @@
 @import "tailwindcss";
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@theme {
+  --color-cream: #f5f4f1;
+  --color-dark: #171717;
+  --color-orange: #f04423;
+  --color-line: #deddd8;
+
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+
+  --max-width-content: 1280px;
+
+  --animate-marquee: marquee 28s linear infinite;
 }
 
-html {
-  scroll-behavior: smooth;
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
-body {
-  background: #f5f3f0;
-  color: #111111;
-  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+@keyframes fade-up-in {
+  0% {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@layer utilities {
+  .container-px {
+    padding-inline: 1.25rem;
+
+    @media (min-width: 768px) {
+      padding-inline: 2rem;
+    }
+
+    @media (min-width: 1280px) {
+      padding-inline: 2.5rem;
+    }
+  }
+
+  .section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-orange);
+
+    &::before {
+      content: "\2733";
+      font-size: 0.875rem;
+      line-height: 1;
+    }
+  }
+
+  .fade-up {
+    animation: fade-up-in 0.7s ease-out both;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .fade-up {
+      animation: none;
+    }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+  }
+
+  body {
+    background: var(--color-cream);
+    color: var(--color-dark);
+    font-family: var(--font-sans);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
 }
