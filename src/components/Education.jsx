@@ -43,7 +43,7 @@ export default function Education() {
         <div className="relative w-full aspect-[16/9] rounded-md overflow-hidden border border-line">
           {!imgError ? (
             <img
-              src="/src/assets/college.png"
+              src="/college.png"
               alt="Islington College Kathmandu campus"
               onError={() => setImgError(true)}
               className="h-full w-full object-cover grayscale"

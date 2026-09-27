@@ -93,7 +93,7 @@ export default function Hero() {
             <div className="relative h-full w-full overflow-hidden">
               {!imgError ? (
                 <img
-                  src="/src/assets/profile.png"
+                  src="/profile.png"
                   alt="Laxman Nepali, Business Administration professional, in a black suit and tie"
                   onError={() => setImgError(true)}
                   className="h-full w-full object-cover object-top grayscale contrast-110"
